@@ -31,13 +31,13 @@ For that case you will need install pywin32 cause it is not included in requirem
 pip install pywin32
 ```
 
-#Update vectorestore
+# Update vectorestore
 Call enpoint GET /Update in order to get all data from database 
 ```
 localhost:8080/update
 ```
 
-#Getting Answers
+# Getting Answers
 Using GET ask/{question} you will get JSON with a short answer for you question including content related that was used to answer you
 ```
 localhost:8080/ask/answer%20here
