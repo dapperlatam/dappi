@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  vectorstore:
+    image: chromadb/chroma
+    ports:
+      - "8081:8000"
+  dappi:
+    build: .
+    ports:
+      - "8080:8000"
+    links:
+      - vectorstore
+  
