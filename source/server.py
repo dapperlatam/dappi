@@ -36,3 +36,8 @@ def read_item(question: Union[str, None] = None):
 async def update():
     ai.actualizar()
     return {"status": "success"}
+
+@app.get("/update-all")
+async def update():
+    ai.actualizar(True)
+    return {"status": "success"}
