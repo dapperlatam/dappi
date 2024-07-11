@@ -9,12 +9,12 @@ services:
   dappi:
     build: .
     ports:
-      - "8080:8000"
+      - "8080:8080"
     links:
       - vectorstore
     networks:
       - dappi_internal_network
- networks:
+networks:
    dappi_internal_network:
      driver: bridge
   

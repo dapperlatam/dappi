@@ -11,7 +11,7 @@ RUN pip install -r /home/api/requirements.txt
 #load .env variables
 ENV PYTHONPATH /home/api
 
-CMD ["uvicorn", "home.api.server:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "home.api.server:app", "--host", "0.0.0.0", "--port", "8080"]
 
 # Expose the port the app runs on
 EXPOSE 8080
