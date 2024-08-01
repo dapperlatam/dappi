@@ -200,7 +200,7 @@ def busqueda_de_base(base,tiempo=None):
         sql_query = query
     else:
         tiempo=datetime.fromtimestamp(tiempo)
-        sql_query = query.replace("--where_clause",f"where update_at>'{tiempo}'")
+        sql_query = query.replace("--where_clause",f"where {base}.update_at>'{tiempo}'")
     connection = psycopg2.connect(
         dbname=os.getenv("DB_NAME"),
         user=os.getenv("DB_USERNAME"),
