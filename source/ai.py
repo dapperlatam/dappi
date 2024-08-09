@@ -31,7 +31,7 @@ import re
 
 def string_to_dict_list(s):
     # Usar expresiones regulares para encontrar los segmentos de texto con números entre corchetes
-    pattern = r'(.*?)\s*\[(\d+)\]'
+    pattern = r'(.*?)\s*[\[\(](\d)\]|\)[\)]'
     matches = re.findall(pattern, s)
 
     # Convertir los matches en una lista de diccionarios
@@ -300,7 +300,7 @@ retriver2=vectorstore.as_retriever()
 
 prompt.messages[0].prompt.template="""Eres un asistente para tareas de pregunta-respuesta que usa el contenido de la plataforma DAPPER.
  Utiliza los siguientes fragmentos de contexto recuperado para responder la pregunta. Si no sabes la respuesta, simplemente di que no lo sabes.
-   responde en maximo un parrafo de 70 palabras, al final de cada frase(punto) reponde entre corchetes el id de la fuente que usaste para responder esa frase ej dapper es lo mejor[1],
+   responde en maximo un parrafo de 70 palabras, al final de cada frase(punto) reponde entre corchetes el id de la fuente que usaste para responder esa frase ej dapper es lo mejor[1] recuerda responder el id entre corchetes cuadrados y no circulares,
      en caso de considerar la informacion insuficeinte o de no recibir informacion responder que no hay infomracion sin citar, porfavor solo responder con la informacpin proveida en contexto, si el contexto esta vacio reponder que no hay informacion
      \nPregunta: {question} \nContexto: {context} \nRespuesta:"""
 
