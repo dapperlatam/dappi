@@ -100,7 +100,10 @@ def get_base_total(relevantes,tiempo=None):
             total_df.append(actual)
     print('total_df', total_df)
     if total_df:
+
         update_df=pd.concat(total_df)
+        if not("summary" in update_df.columns):
+            update_df["summary"]=None
         update_df.sort_values(by="update_at",inplace=True)
         update_df["link"]=update_df.apply(lambda x: f"""/dashboard/{x["fuente"]}/{x["id"]}""",axis=1)
         update_df["summary"] = update_df.apply(lambda x: str(x["summary"]).encode('utf-8', 'ignore').decode('utf-8') if x["summary"] else "",axis=1)
